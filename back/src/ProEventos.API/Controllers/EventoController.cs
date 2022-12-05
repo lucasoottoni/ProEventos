@@ -13,6 +13,7 @@ namespace ProEventos.API.Controllers
     [Route("api/[controller]")]
     public class EventoController : ControllerBase
     {
+<<<<<<< HEAD
    
         
         private readonly DataContext _context;
@@ -21,6 +22,20 @@ namespace ProEventos.API.Controllers
         {
             _context = context;
             
+=======
+    
+      
+        private static readonly string[] Summaries = new[]
+        {
+            "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
+        };
+
+        private readonly DataContext _context;
+
+        public EventoController(DataContext context)
+        {
+            this._context = context;
+>>>>>>> 69b924b9c9c83399a59caa6877b6bde56123250b
 
         }
 
@@ -32,9 +47,14 @@ namespace ProEventos.API.Controllers
 
         
         [HttpGet("{id}")]
-        public IEnumerable<Evento> GetById(int id)
+        public Evento GetById(int id)
         {
+<<<<<<< HEAD
             return  _context.Eventos.Where(evento => evento.EventoId ==id);
+=======
+            
+            return _context.Eventos.FirstOrDefault(evento => evento.EventoId ==id);
+>>>>>>> 69b924b9c9c83399a59caa6877b6bde56123250b
         }
 
         [HttpPost]
